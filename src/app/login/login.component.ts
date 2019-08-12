@@ -1,33 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { CookieService } from 'ngx-cookie-service';
+import {SessionService} from '../session.service';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [SessionService]
 })
-export class LoginComponent implements OnInit {
-  clickMessage = '';
-  private _sessionId: string;
 
-  constructor(private cookieService: CookieService) {
-      this._sessionId= "harcoded";
-      this.cookieService.set("sessionId", this._sessionId);
+
+export class LoginComponent implements OnInit {
+
+  buttonMessage = '';
+name = 'x';
+password = 'y';
+
+  constructor(public sessionService: SessionService) {
+     this.buttonMessage = sessionService.getToken();
+  }
+
+  onClickMe() {
+
+   // this.clickMessage = sessionService.getToken();
+
+
+  }
+
+  login(){
+      //  this.buttonMessage='logged in';
+     this.sessionService.setToken(this.name);
+     this.buttonMessage = this.sessionService.getToken();
   }
 
   ngOnInit() {
   }
-
-
-
-  onClickMe(private cookieService: CookieService) {
-
-    this.clickMessage = this.cookieService.get("sessionId");
-  }
-
-
-
-
-
-
 
 }

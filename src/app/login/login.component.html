@@ -1,4 +1,28 @@
 <p>login works!</p>
 
-{{clickMessage}}
-<button (click)="onClickMe()">Click me!</button>
+
+
+
+{{name}}
+
+{{password}}
+
+
+<br/>
+button:{{buttonMessage}}<br/>
+
+  <div >
+    <label >Name</label>
+    <input type="text"  [(ngModel)]="name" id="name" >
+  </div>
+
+  <div >
+    <label >password</label>
+    <input type="text" [(ngModel)]="password" id="password">
+  </div>
+
+
+
+  <button type="button" class="btn btn-default" (click)="login()">login</button>
+
+
