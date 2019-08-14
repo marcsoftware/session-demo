@@ -12,8 +12,8 @@ import {Inject} from '@angular/core';
 export class LoginComponent implements OnInit {
 
   buttonMessage = '';
-name = 'x';
-password = 'y';
+name = '-';
+password = '-';
 response='-';
 
  global_array=new Array();
@@ -47,7 +47,7 @@ response='-';
     var xhttp = new XMLHttpRequest();
     var text ='testing';
     var yourArray=this.global_array;
-    yourArray.push('a');
+
     console.log(yourArray);
     this.response=yourArray[0];
     xhttp.onreadystatechange =function(y, x, text) {
