@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {SessionService} from '../session.service';
-
+import {Inject} from '@angular/core';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,9 +14,13 @@ export class LoginComponent implements OnInit {
   buttonMessage = '';
 name = 'x';
 password = 'y';
+response='-';
+
+ global_array=new Array();
 
   constructor(public sessionService: SessionService) {
      this.buttonMessage = sessionService.getToken();
+
   }
 
   onClickMe() {
@@ -35,21 +39,46 @@ password = 'y';
   ngOnInit() {
   }
 
-
+  display(x){
+    this.response=x;
+  }
   testGet() {
-    console.log("before");
+
     var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
+    var text ='testing';
+    var yourArray=this.global_array;
+    yourArray.push('a');
+    console.log(yourArray);
+    this.response=yourArray[0];
+    xhttp.onreadystatechange =function(y, x, text) {
       if (this.readyState === 4 && this.status === 200) {
 
-        console.log(this.responseText);
+        console.log('-------' + this.responseText);
+
+        console.log(text);
+        yourArray[0]=(this.responseText);
+
+
       }
-    };
-    console.log("after");
-    xhttp.open('GET','http://localhost:3000/pictures', true);
+    }
+
+
+
+    //GET /posts
+    xhttp.open('GET','http://localhost:3000/users?name=marc&password=password', true);
+
+
+    xhttp.withCredentials = false;
     xhttp.send();
-    console.log(xhttp);
+
   }
+
+
+  callback(){
+    console.log('bacllback')
+  }
+
+
 
 
 }
