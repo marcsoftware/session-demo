@@ -35,4 +35,21 @@ password = 'y';
   ngOnInit() {
   }
 
+
+  testGet() {
+    console.log("before");
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState === 4 && this.status === 200) {
+
+        console.log(this.responseText);
+      }
+    };
+    console.log("after");
+    xhttp.open('GET','http://localhost:3000/pictures', true);
+    xhttp.send();
+    console.log(xhttp);
+  }
+
+
 }
