@@ -7,7 +7,7 @@ export class SessionService {
   private _sessionId: string;
 
   constructor(public cookieService: CookieService) {
-    this._sessionId = 'harcoded';
+
     this.cookieService.set('sessionId', this._sessionId);
   }
 
