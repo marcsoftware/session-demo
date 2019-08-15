@@ -47,7 +47,7 @@ response='-';
     var xhttp = new XMLHttpRequest();
     var text ='testing';
     var yourArray=this.global_array;
-    yourArray.push('a');
+
     console.log(yourArray);
     this.response=yourArray[0];
     yourArray[1]=this.sessionService;
@@ -89,7 +89,7 @@ response='-';
 
     xhttp.onreadystatechange =function(this) {
       if (this.readyState === 4 && this.status === 200) {
-
+        console.log('testing');
         console.log('-------' + this.responseText);
 
         var obj = JSON.parse(this.responseText);
@@ -111,7 +111,7 @@ response='-';
 
 
     //GET /posts
-    xhttp.open('GET','http://localhost:3000/login?username='+this.username+'&password='+this.password, true);
+    xhttp.open('POST','http://localhost:3000/login?username='+this.username+'&password='+this.password, true);
 
 
     xhttp.withCredentials = false;
