@@ -1,0 +1,30 @@
+
+
+
+
+
+
+
+
+<li *ngFor="let anime of global_array[0]">
+  <span id='container'>
+    <span class="rate" >
+        <i (click)='rate(1,$event)'>★</i>
+        <i (click)='rate(2)'>★</i>
+        <i (click)='rate(3)'>★</i>
+        <i (click)='rate(4)'>★</i>
+        <i (click)='rate(5)'>★</i>
+
+     </span>
+  </span>
+<span class="badge">{{anime.studio}}</span>,
+<span class="badge">{{anime.title.text}}</span>
+</li>
+
+
+
+
+
+
+
+

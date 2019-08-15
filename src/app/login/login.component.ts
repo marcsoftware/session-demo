@@ -68,12 +68,13 @@ response='-';
 
       }
     }
-    //GET /posts
-    xhttp.open('GET','http://18.191.142.3:8181/login?username='+this.username+'&password='+this.password, true);
+    //live
+    xhttp.open('POST', 'http://18.191.142.3:8181/login', true);
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhttp.withCredentials = false;
-    xhttp.send();
-
+    xhttp.withCredentials = true;
+    xhttp.send('username=' + this.username + '&password=' + this.password);
+  console.log(xhttp);
   }
 
 

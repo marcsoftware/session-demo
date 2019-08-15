@@ -6,11 +6,13 @@ import { LoginComponent } from './login/login.component';
 import { BlankComponent } from './blank/blank.component';
 import { SessionService } from './session.service';
 import { FormsModule } from '@angular/forms';
+import { AnimeComponent } from './anime/anime.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    BlankComponent
+    BlankComponent,
+    AnimeComponent
 
 
   ],
