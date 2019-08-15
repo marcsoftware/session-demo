@@ -12,7 +12,7 @@ import {Inject} from '@angular/core';
 export class LoginComponent implements OnInit {
 
   buttonMessage = '';
-name = '-';
+username = '-';
 password = '-';
 response='-';
 
@@ -65,7 +65,7 @@ response='-';
 
 
     //GET /posts
-    xhttp.open('GET','http://localhost:3000/login?username=username&password=password', true);
+    xhttp.open('GET','http://localhost:3000/login?username='+this.username+'&password='+this.password, true);
 
 
     xhttp.withCredentials = false;
