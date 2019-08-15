@@ -47,17 +47,17 @@ response='-';
     var xhttp = new XMLHttpRequest();
     var text ='testing';
     var yourArray=this.global_array;
-
+    yourArray.push('a');
     console.log(yourArray);
     this.response=yourArray[0];
-    xhttp.onreadystatechange =function(y, x, text) {
+    xhttp.onreadystatechange =function(this) {
       if (this.readyState === 4 && this.status === 200) {
 
         console.log('-------' + this.responseText);
 
-        console.log(text);
-        yourArray[0]=(this.responseText);
 
+        yourArray[0]=(this.responseText);
+        console.log(yourArray[0]);
 
       }
     }
@@ -65,7 +65,7 @@ response='-';
 
 
     //GET /posts
-    xhttp.open('GET','http://localhost:3000/users?name=marc&password=password', true);
+    xhttp.open('GET','http://localhost:3000/login?username=username&password=password', true);
 
 
     xhttp.withCredentials = false;
