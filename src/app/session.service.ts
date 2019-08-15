@@ -7,8 +7,10 @@ export class SessionService {
   private _sessionId: string;
 
   constructor(public cookieService: CookieService) {
+    let date = new Date();
+    date.setDate( date.getDate() + 1000 );//cookie expires in 1000 days
 
-    this.cookieService.set('sessionId', this._sessionId);
+    this.cookieService.set('sessionId', this._sessionId,date);
   }
 
   getToken() {
