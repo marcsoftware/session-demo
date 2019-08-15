@@ -71,8 +71,10 @@ response='-';
 
 
 
+
+
     //GET /posts
-    xhttp.open('GET','http://localhost:3000/login?username='+this.username+'&password='+this.password, true);
+    xhttp.open('GET','http://18.191.142.3:8181/login?username='+this.username+'&password='+this.password, true);
 
 
     xhttp.withCredentials = false;
@@ -81,8 +83,44 @@ response='-';
   }
 
 
-  callback(){
-    console.log('bacllback')
+  localLogin() {
+
+    var xhttp = new XMLHttpRequest();
+    var text ='testing';
+    var yourArray=this.global_array;
+    yourArray.push('a');
+    console.log(yourArray);
+    this.response=yourArray[0];
+    yourArray[1]=this.sessionService;
+
+    xhttp.onreadystatechange =function(this) {
+      if (this.readyState === 4 && this.status === 200) {
+
+        console.log('-------' + this.responseText);
+
+
+        yourArray[0]=(this.responseText);
+        console.log(yourArray[0]);
+
+
+        yourArray[1].setToken('still yes');
+
+
+
+      }
+    }
+
+
+
+
+
+    //GET /posts
+    xhttp.open('GET','http://localhost:3000/login?username='+this.username+'&password='+this.password, true);
+
+
+    xhttp.withCredentials = false;
+    xhttp.send();
+
   }
 
 
