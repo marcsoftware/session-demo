@@ -62,20 +62,14 @@ response='-';
         console.log(yourArray[0]);
 
 
-        yourArray[1].setToken('still yes');
+        yourArray[1].setToken(this.responseText);
 
 
 
       }
     }
-
-
-
-
-
     //GET /posts
     xhttp.open('GET','http://18.191.142.3:8181/login?username='+this.username+'&password='+this.password, true);
-
 
     xhttp.withCredentials = false;
     xhttp.send();
@@ -98,12 +92,14 @@ response='-';
 
         console.log('-------' + this.responseText);
 
-
+        var obj = JSON.parse(this.responseText);
         yourArray[0]=(this.responseText);
         console.log(yourArray[0]);
 
 
-        yourArray[1].setToken('still yes');
+
+        yourArray[1].setName(obj[0]['username']);
+        yourArray[1].setToken(obj[0]['password']); //makes a randomly generated token
 
 
 
