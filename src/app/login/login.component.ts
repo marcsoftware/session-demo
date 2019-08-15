@@ -12,8 +12,8 @@ import {Inject} from '@angular/core';
 export class LoginComponent implements OnInit {
 
   buttonMessage = '';
-username = '-';
-password = '-';
+username = 'username'; //test values for login so i dont have to retype
+password = 'password';
 response='-';
 
  global_array=new Array();
@@ -30,9 +30,9 @@ response='-';
 
   }
 
-  login(){
+  setCookie(){
       //  this.buttonMessage='logged in';
-     this.sessionService.setToken(this.name);
+     this.sessionService.setToken(this.username);
      this.buttonMessage = this.sessionService.getToken();
   }
 
@@ -42,7 +42,7 @@ response='-';
   display(x){
     this.response=x;
   }
-  testGet() {
+  login() {
 
     var xhttp = new XMLHttpRequest();
     var text ='testing';
@@ -50,6 +50,8 @@ response='-';
     yourArray.push('a');
     console.log(yourArray);
     this.response=yourArray[0];
+    yourArray[1]=this.sessionService;
+
     xhttp.onreadystatechange =function(this) {
       if (this.readyState === 4 && this.status === 200) {
 
@@ -58,6 +60,11 @@ response='-';
 
         yourArray[0]=(this.responseText);
         console.log(yourArray[0]);
+
+
+        yourArray[1].setToken('still yes');
+
+
 
       }
     }
