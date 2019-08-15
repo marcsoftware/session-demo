@@ -82,7 +82,7 @@ response='-';
     var xhttp = new XMLHttpRequest();
     var text ='testing';
     var yourArray=this.global_array;
-    yourArray.push('a');
+
     console.log(yourArray);
     this.response=yourArray[0];
     yourArray[1]=this.sessionService;
