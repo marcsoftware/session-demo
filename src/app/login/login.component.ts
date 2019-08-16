@@ -69,11 +69,16 @@ response='-';
       }
     }
     //live
-    xhttp.open('POST', 'http://18.191.142.3:8181/login', true);
-    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    xhttp.open('POST', 'http://18.191.142.3:8181/login/newUser', true);
+    //xhttp.setRequestHeader('Content-Type', 'multipart/form-data'); //500 insertal server error
+    //xhttp.setRequestHeader('Content-Type', 'text/html; charset=utf-8');//415 unsupported media type
+    //xhttp.setRequestHeader('Content-Type', 'multipart/form-data; boundary=something'); //415 unsupported media type
 
-    xhttp.withCredentials = true;
-    xhttp.send('username=' + this.username + '&password=' + this.password);
+    //xhttp.setRequestHeader('Content-Type', 'application/javascript');
+    xhttp.setRequestHeader('Content-Type', 'application/json;charset=UTF-8'); //400 basrequest
+
+    xhttp.withCredentials = false;
+    //xhttp.send(JSON.stringify({ "username": "marc", "password": "melcher" }));
   console.log(xhttp);
   }
 
